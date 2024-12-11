@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for item in history %}
+                <tr>
+                    <td class="text-start">{{ item.symbol|upper }}</td>
+                    <td class="text-end">{{ item.shares }}</td>
+                    <td class="text-end">${{ "%.2f" | format(item.price) }}</td>
+                    <td class="text-end">{{ item.transacted }}</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

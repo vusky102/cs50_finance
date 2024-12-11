@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <p>
+        A share of {{ response.name }} ({{ response.symbol }}) costs
+        {{ "%.2f" | format(response.price) }}.
+    </p>
+{% endblock %}
